@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get Fit By Marie | Fitness, Nutrition, Habits & Gear</title>
+  <meta name="description" content="Short, powerful workouts, quick healthy meals, intermittent fasting routines, daily habits, and fitness gear for busy women.">
+  <link rel="icon" href="favicon.ico">
+
+  <style>
+    :root {
+      --primary: #ff6b6b;
+      --secondary: #3b82f6;
+      --accent: #10b981;
+      --dark: #111827;
+      --light: #f9fafb;
+      --muted: #6b7280;
+      --bg-gradient: linear-gradient(135deg, #fff7ed, #eff6ff);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-gradient);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0 2rem;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top left, #f97316, #3b82f6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .brand-text h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .brand-text p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      padding: 0.4rem 0.6rem;
+      border-radius: 999px;
+      color: var(--muted);
+    }
+
+    nav a:hover {
+      background: rgba(15, 23, 42, 0.05);
+      color: var(--dark);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2rem;
+      align-items: center;
+      padding: 1.5rem 0 2.5rem;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.08);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+
+    .pill span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary, .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(248, 113, 113, 0.35);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--dark);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .hero-meta strong {
+      display: block;
+      color: var(--dark);
+      font-size: 0.9rem;
+    }
+
+    .hero-card {
+      background: #fff;
+      border-radius: 1.2rem;
+      padding: 1.25rem;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.09);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .gear-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .gear-item {
+      background: linear-gradient(145deg, #eff6ff, #fef3c7);
+      border-radius: 0.75rem;
+      padding: 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #111827;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gear-item span.label {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .gear-item span.tag {
+      font-size: 0.7rem;
+      color: #4b5563;
+    }
+
+    .watermark {
+      position: absolute;
+      font-size: 0.55rem;
+      color: rgba(15, 23, 42, 0.4);
+      bottom: 0.4rem;
+      right: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .gear-caption {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .hero-card-badges span {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.04);
+      color: #374151;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2.section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p.section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .cols-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+      font-size: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .chip {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.04);
+      color: #4b5563;
+    }
+
+    .disclaimer {
+      font-size: 0.75rem;
+      color: #4b5563;
+      background: #f9fafb;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 1rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      padding: 1.5rem 0 0.5rem;
+      font-size: 0.8rem;
+      color: #6b7280;
+      border-top: 1px dashed rgba(148, 163, 184, 0.5);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    footer a {
+      color: #4b5563;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 0.5rem;
+      }
+
+      .hero-title {
+        font-size: 1.7rem;
+      }
+
+      .cols-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="logo-circle">FM</div>
+        <div class="brand-text">
+          <h1>Get Fit By Marie</h1>
+          <p>Fitness • Nutrition • Habits • Gear</p>
+        </div>
+      </div>
+      <nav>
+        <a href="#programs">Programs</a>
+        <a href="#nutrition">Nutrition</a>
+        <a href="#habits">Habits</a>
+        <a href="#gear">Gear</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="pill">
+            <span class="dot"></span>
+            2026 Transformation System
+          </div>
+          <h2 class="hero-title">
+            Short, powerful routines for a<br>
+            <span>feminine, sculpted body</span> – even with a busy life.
+          </h2>
+          <p class="hero-subtitle">
+            Get Fit By Marie combines 10–15 minute workouts, quick healthy meals, intermittent fasting,
+            and simple daily habits so you can transform your body and energy without living in the gym.
+          </p>
+          <div class="hero-buttons">
+            <a href="https://www.instagram.com/getfitbymarie1" class="btn-primary" target="_blank" rel="noopener">
+              Follow on Instagram
+            </a>
+            <a href="https://www.youtube.com" class="btn-secondary" target="_blank" rel="noopener">
+              Watch Workouts on YouTube
+            </a>
+          </div>
+          <div class="hero-meta">
+            <div>
+              <strong>Built for busy women</strong>
+              10–15 min workouts • no gym required
+            </div>
+            <div>
+              <strong>Whole-health approach</strong>
+              Fitness, nutrition, lifestyle and gear working together
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Fitness gear mockup">
+          <div class="gear-grid">
+            <div class="gear-item">
+              <span class="label">Resistance Bands Set</span>
+              <span class="tag">Light • Medium • Heavy</span>
+              <div class="watermark">GETFITBYMARIE</div>
+            </div>
+            <div class="gear-item">
+              <span class="label">Insulated Water Bottle</span>
+              <span class="tag">“Get Fit. Stay Consistent.”</span>
+              <div class="watermark">FITNESSBYMARIE</div>
+            </div>
+            <div class="gear-item">
+              <span class="label">Non-slip Yoga Mat</span>
+              <span class="tag">Cushioned • Colorful • Durable</span>
+              <div class="watermark">GETFITBYMARIE1</div>
+            </div>
+            <div class="gear-item">
+              <span class="label">Busy Pro Starter Pack</span>
+              <span class="tag">Bands + Bottle + Habit Guide</span>
+              <div class="watermark">GET FIT BY MARIE</div>
+            </div>
+          </div>
+
+          <p class="gear-caption">
+            All mockups and designs on this site are original and created exclusively for the Get Fit By Marie brand.
+          </p>
+
+          <div class="hero-card-badges">
+            <span>10–15 min workouts</span>
+            <span>Quick healthy meals</span>
+            <span>Intermittent fasting routines</span>
+            <span>Daily habit systems</span>
+          </div>
+        </aside>
+      </section>
+
+      <section id="programs">
+        <h2 class="section-title">Workout programs for real life</h2>
+        <p class="section-subtitle">
+          Follow-along workouts designed for busy professionals, parents, and builders who still want a feminine, sculpted body:
+          slim waist, lifted glutes, toned legs, and strong posture.
+        </p>
+
+        <div class="cols-3">
+          <div class="card">
+            <h3>10–15 Minute Workouts</h3>
+            <p>Short, intense sessions you can stack or complete solo – perfect before work, during a break, or after a long day.</p>
+            <div class="chip-row">
+              <span class="chip">Glutes &amp; Legs</span>
+              <span class="chip">Slim Waist Core</span>
+              <span class="chip">Full Body HIIT</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>30-Day & 12-Month Plans</h3>
+            <p>Structured transformation plans with progression, rest, and flexibility, so you never wonder what to do next.</p>
+            <div class="chip-row">
+              <span class="chip">30-Day Jumpstart</span>
+              <span class="chip">12-Month Roadmap</span>
+              <span class="chip">Busy Pro Schedules</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Follow-Along Videos</h3>
+            <p>Press play and move – clear instructions, timer-based intervals, and modifications to meet you where you are.</p>
+            <div class="chip-row">
+              <span class="chip">Home-friendly</span>
+              <span class="chip">No Gym Needed</span>
+              <span class="chip">Beginner–Intermediate</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="nutrition">
+        <h2 class="section-title">Nutrition & intermittent fasting</h2>
+        <p class="section-subtitle">
+          Simple, grocery-store-accessible meals and fasting structures like 16:8 and 18:6 designed to support weight loss,
+          energy, and health – inspired by Mediterranean and DASH-style eating.
+        </p>
+
+        <div class="cols-3">
+          <div class="card">
+            <h3>Intermittent Fasting Ranges</h3>
+            <p>General education on common fasting windows and how different schedules can fit real life.</p>
+            <div class="chip-row">
+              <span class="chip">16:8</span>
+              <span class="chip">18:6</span>
+              <span class="chip">14:10</span>
+              <span class="chip">Gentle On-Ramps</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Quick, Healthy Meals</h3>
+            <p>Templates for balanced plates you can build from any standard grocery store: protein, fiber, healthy fats, and color.</p>
+            <div class="chip-row">
+              <span class="chip">Mediterranean-inspired</span>
+              <span class="chip">DASH-style</span>
+              <span class="chip">Simple &amp; Repeatable</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>2-Day Water & Tea Challenges</h3>
+            <p>Educational guidance on structured short-term resets featuring water, green tea, and electrolytes – always with clear safety reminders.</p>
+            <div class="chip-row">
+              <span class="chip">Hydration Focus</span>
+              <span class="chip">Electrolyte Support</span>
+              <span class="chip">Doctor-First Mindset</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="habits">
+        <h2 class="section-title">Habit systems & daily schedules</h2>
+        <p class="section-subtitle">
+          Because transformation is built one day at a time, you’ll get tools to actually live this lifestyle: routines,
+          trackers, and systems that fit busy calendars.
+        </p>
+
+        <div class="cols-3">
+          <div class="card">
+            <h3>Daily Schedules</h3>
+            <p>Sample day flows and templates that show exactly where workouts, meals, and recovery can live in real life.</p>
+            <div class="chip-row">
+              <span class="chip">Busy Pro Schedules</span>
+              <span class="chip">Morning &amp; Evening Routines</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Habit Trackers</h3>
+            <p>Printable and digital trackers for workouts, steps, water, sleep, and mindset – so progress becomes visible.</p>
+            <div class="chip-row">
+              <span class="chip">PDFs &amp; Notion-friendly</span>
+              <span class="chip">Weekly &amp; Monthly Views</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Mindset & Journaling</h3>
+            <p>Reflection prompts and check-ins to connect your actions with your long-term vision and values.</p>
+            <div class="chip-row">
+              <span class="chip">Weekly Check-ins</span>
+              <span class="chip">Progress Photos &amp; Metrics</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gear">
+        <h2 class="section-title">Branded fitness gear & bundles</h2>
+        <p class="section-subtitle">
+          Custom Get Fit By Marie gear designed to make your workouts more enjoyable and your routine easier to stick with.
+          Available as full packages or standalone add-ons.
+        </p>
+
+        <div class="cols-3">
+          <div class="card">
+            <h3>Resistance Band Sets</h3>
+            <p>Colorful bands labeled with the Get Fit By Marie brand, in multiple resistance levels to grow with you.</p>
+            <div class="chip-row">
+              <span class="chip">GetFitByMarie</span>
+              <span class="chip">Light • Medium • Heavy</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Hydration & Mats</h3>
+            <p>Branded bottles and non-slip yoga mats so your training space feels intentional, calm, and yours.</p>
+            <div class="chip-row">
+              <span class="chip">FitnessByMarie</span>
+              <span class="chip">Motivational Quotes</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Busy Pro Bundles</h3>
+            <p>Curated kits combining gear with digital guides and routines – for people who want everything done for them.</p>
+            <div class="chip-row">
+              <span class="chip">Starter Pack</span>
+              <span class="chip">Transformation Pack</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="disclaimer">
+          <strong>Important Disclaimer – Read This First</strong><br><br>
+          All content provided by Get Fit By Marie / GetFitByMarie1 / FitnessByMarie – including workouts,
+          programs, nutrition ideas, intermittent fasting and water/electrolyte challenge information, and lifestyle
+          recommendations – is for general informational and educational purposes only. It is not medical advice,
+          diagnosis, or treatment, and does not create a doctor–patient or dietitian–client relationship.<br><br>
+
+          Always speak with your doctor or another qualified healthcare professional before starting any new exercise
+          program, diet, intermittent fasting routine (including but not limited to 16:8, 18:6, OMAD), or any form of
+          water fast, green tea fast, or electrolyte-only protocol. If you have any medical condition, take medications,
+          are pregnant or breastfeeding, or are unsure whether these methods are safe for you, you must get medical
+          clearance first.<br><br>
+
+          Do not ignore or delay seeking professional medical advice because of something you read, watch, or purchase
+          from Get Fit By Marie. By choosing to use this website and related content, you agree that you do so
+          voluntarily and at your own risk, and you agree that Get Fit By Marie and Marie are not responsible or liable
+          for any outcomes, injuries, or health issues that may arise.
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Get Fit By Marie. All rights reserved.</div>
+      <div>
+        <a href="https://www.instagram.com/getfitbymarie1" target="_blank" rel="noopener">Instagram</a> ·
+        <a href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a> ·
+        <a href="mailto:getfitbymarie1@gmail.com">Email</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
